@@ -1,0 +1,50 @@
+# Semantic layer: makes raw GeoTIFF rasters legible to an LLM agent.
+#
+# Each entry describes a dataset the way you'd explain it to a colleague:
+# what it is, what unit it's in, and what it's useful for. The agent reads
+# this file (not the raw pixels) to decide which dataset(s) a tool call
+# should operate on.
+#
+# To connect a real dataset instead of the synthetic demo: swap `path` to
+# a real GeoTIFF (e.g. exported from Google Earth Engine or built from
+# Sentinel-2 / GEE permafrost products via GDAL/Rasterio) with matching CRS.
+
+datasets:
+  dem:
+    path: data/dem.tif
+    label: "Digital Elevation Model"
+    unit: "meters above sea level"
+    description: >
+      Terrain elevation for the study area, a coastal Arctic tile near
+      Herschel Island. Useful for terrain/slope context and for
+      correlating other layers with elevation.
+    value_range: [0, 150]
+
+  permafrost_probability:
+    path: data/permafrost_probability.tif
+    label: "Permafrost Probability"
+    unit: "probability (0-1)"
+    description: >
+      Modelled probability that permafrost is present at a given location,
+      derived from terrain and coastal proximity. Higher values indicate
+      higher likelihood of continuous permafrost.
+    value_range: [0, 1]
+
+  ground_ice_content:
+    path: data/ground_ice_content.tif
+    label: "Ground Ice Content"
+    unit: "percent volumetric ice content"
+    description: >
+      Estimated massive ground ice content, most relevant in low-lying
+      coastal terrain. Elevated values may indicate massive ice bodies of
+      the kind studied on Herschel Island.
+    value_range: [0, 90]
+
+region:
+  name: "Demo Arctic coastal tile (Herschel Island area, Yukon)"
+  bbox: [-139.10, 69.151, -138.651, 69.60]  # [west, south, east, north] -- matches generated raster extent
+  crs: "EPSG:4326"
+  note: >
+    SYNTHETIC DEMO DATA. Structurally realistic (real CRS, real resolution,
+    plausible value ranges) but not derived from real satellite observations.
+    Swap in real GeoTIFFs (Sentinel-2, PANGAEA, GEE exports) for production use.

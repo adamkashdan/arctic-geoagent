@@ -1,0 +1,10 @@
+rasterio
+geopandas
+shapely
+numpy
+matplotlib
+google-genai
+fastapi
+uvicorn
+pyyaml
+pydantic
