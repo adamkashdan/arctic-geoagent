@@ -112,8 +112,7 @@ environment (no API key was available there):
 
 ## Possible next steps
 
-- Swap in real data (Google Earth Engine export, or your own published
-  Herschel Island dataset)
+- Swap in real data (Google Earth Engine export)
 - Add a minimal chat frontend (Streamlit or a small HTML/JS page)
 - Add a `compute_slope` or `hazard_susceptibility_index` tool drawing on
   your avalanche/landslide hazard-assessment publications
