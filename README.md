@@ -118,4 +118,4 @@ environment (no API key was available there):
 - Add a `compute_slope` or `hazard_susceptibility_index` tool drawing on
   your avalanche/landslide hazard-assessment publications
 - Deploy the FastAPI app somewhere reachable (Render/Railway) for a live
-  demo link on your resume
+  demo link on resume
